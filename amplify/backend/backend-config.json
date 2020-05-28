@@ -1,1 +1,15 @@
-{}
+{
+	"auth": {
+		"cognitobf232e08": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation"
+		}
+	},
+	"interactions": {
+		"chatbot": {
+			"service": "Lex",
+			"providerPlugin": "awscloudformation",
+			"build": true
+		}
+	}
+}

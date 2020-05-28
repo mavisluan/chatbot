@@ -10,6 +10,11 @@
             "StackName": "amplify-chatbot-dev-153416",
             "StackId": "arn:aws:cloudformation:us-east-1:009389907291:stack/amplify-chatbot-dev-153416/5e9b46e0-a133-11ea-a1fd-1277ff2044b7",
             "AmplifyAppId": "d25xaouv4vhl31"
+        },
+        "categories": {
+            "auth": {
+                "cognitobf232e08": {}
+            }
         }
     }
 }
