@@ -10,6 +10,11 @@
 			"service": "Lex",
 			"providerPlugin": "awscloudformation",
 			"build": true
+		},
+		"OrderFlowers": {
+			"service": "Lex",
+			"providerPlugin": "awscloudformation",
+			"build": true
 		}
 	}
 }
