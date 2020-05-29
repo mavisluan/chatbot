@@ -1,49 +1,19 @@
 import React, { Component } from 'react';
 import Amplify, { Interactions } from 'aws-amplify';
-import { ChatBot, AmplifyTheme } from 'aws-amplify-react';
 import awsconfig from './aws-exports';
+import BookTrip from './BookTrip';
 
 Amplify.configure(awsconfig);
 
-// Imported default theme can be customized by overloading attributes
-const myTheme = {
-  ...AmplifyTheme,
-  sectionHeader: {
-    ...AmplifyTheme.sectionHeader,
-    backgroundColor: '#ff6600'
-  }
-};
-
-class App extends Component {
-
-  handleComplete(err, confirmation) {
-    if (err) {
-      alert('Bot conversation failed')
-      return;
-    }
-
-    alert('Success: ' + JSON.stringify(confirmation, null, 2));
-    return 'Trip booked. Thank you! what would you like to do next?';
-  }
-
-  render() {
+const App = () =>  {
     return (
-      <div className="App">
+      <div className="mt-5 text-center">
         <header className="App-header">
-          <h1 className="App-title">Welcome to ChatBot Demo</h1>
+          <h3 className="App-title">Welcome to ChatBot Demo</h3>
         </header>
-        <ChatBot
-          title="My Bot"
-          theme={myTheme}
-          botName="BookTrip_dev"
-          welcomeMessage="Welcome, how can I help you today?"
-          onComplete={this.handleComplete.bind(this)}
-          clearOnComplete={true}
-          conversationModeOn={false}
-        />
+       <BookTrip />
       </div>
     );
-  }
 }
 
 export default App;
