@@ -5,5 +5,11 @@
 			"providerPlugin": "awscloudformation"
 		}
 	},
-	"interactions": {}
+	"interactions": {
+		"orderFlowers": {
+			"service": "Lex",
+			"providerPlugin": "awscloudformation",
+			"build": true
+		}
+	}
 }

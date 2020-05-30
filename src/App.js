@@ -12,7 +12,7 @@ const App = () =>  {
         <header className="App-header">
           <h3 className="App-title">Welcome to ChatBot Demo</h3>
         </header>
-        <BookTrip />
+        <OrderFlowers />
       </div>
     );
 }

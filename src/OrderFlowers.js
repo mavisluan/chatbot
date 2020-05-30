@@ -15,7 +15,7 @@ const OrderFlowers = () => {
           alert('Bot conversation failed')
           return;
         }
-    
+        console.log('Confirmation', confirmation)
         alert('Success: ' + JSON.stringify(confirmation, null, 2));
         return 'Flowers order placed. Thank you! what would you like to do next?';
       }
