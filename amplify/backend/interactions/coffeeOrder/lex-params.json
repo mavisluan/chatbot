@@ -1,0 +1,27 @@
+{
+    "resourceName": "coffeeOrder",
+    "botName": "CoffeeBot",
+    "intents": [
+        {
+            "slots": [
+                {
+                    "name": "coffee",
+                    "type": "AMAZON.Drink",
+                    "prompt": "What kind of coffee?",
+                    "required": true,
+                    "customType": false
+                }
+            ],
+            "utterances": [
+                "I would like to order a coffee",
+                "I would like to have a drink",
+                "I would like to order"
+            ],
+            "intentName": "CoffeeOrder",
+            "newSlotTypes": []
+        }
+    ],
+    "outputVoice": "Joanna",
+    "sessionTimeout": 5,
+    "coppa": false
+}

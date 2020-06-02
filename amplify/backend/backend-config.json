@@ -10,6 +10,11 @@
 			"service": "Lex",
 			"providerPlugin": "awscloudformation",
 			"build": true
+		},
+		"coffeeOrder": {
+			"service": "Lex",
+			"providerPlugin": "awscloudformation",
+			"build": true
 		}
 	}
 }

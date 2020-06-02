@@ -1,8 +1,7 @@
 import React from 'react';
 import Amplify from 'aws-amplify';
 import awsconfig from './aws-exports';
-import BookTrip from './BookTrip';
-import OrderFlowers from './OrderFlowers';
+import OrderCoffee from './OrderCoffee';
 
 Amplify.configure(awsconfig);
 
@@ -12,7 +11,7 @@ const App = () =>  {
         <header className="App-header">
           <h3 className="App-title">Welcome to ChatBot Demo</h3>
         </header>
-        <OrderFlowers />
+        <OrderCoffee />
       </div>
     );
 }
