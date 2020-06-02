@@ -9,7 +9,7 @@ const myTheme = {
     },
   };
   
-const OrderCoffee = () => {
+const StyledOrderCoffee = () => {
     const handleComplete = (err, confirmation) => {
         if (err) {
           alert('Bot conversation failed')
@@ -33,4 +33,4 @@ const OrderCoffee = () => {
 }
 
 
-export default OrderCoffee
+export default StyledOrderCoffee

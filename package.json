@@ -12,6 +12,7 @@
     "bootstrap": "^4.5.0",
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.1",
+    "react-chat-ui": "^0.3.2",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1"
   },
