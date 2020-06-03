@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-
+import {Alert, Container} from 'react-bootstrap'
 import { Interactions } from 'aws-amplify';
-import { ChatFeed, Message } from 'react-chat-ui'
+import { Message } from 'react-chat-ui'
 
 class StyledOrderCoffee extends Component {
   state = {
@@ -11,6 +11,7 @@ class StyledOrderCoffee extends Component {
       new Message({
         id: 1,
         message: "Hello, how can I help you today?",
+        senderName:'robot'
       })
     ]
   }
@@ -32,6 +33,7 @@ class StyledOrderCoffee extends Component {
     const message = new Message({
       id: 0,
       message: input,
+      senderName: 'user'
     })
     let messages = [...this.state.messages, message]
 
@@ -43,68 +45,51 @@ class StyledOrderCoffee extends Component {
     const responseMessage = new Message({
       id: 1,
       message: response.message,
+      senderName: 'robot'
     })
     messages  = [...this.state.messages, responseMessage]
     this.setState({ messages })
-
-    // if (response.dialogState === 'Fulfilled') {
-    //   if (response.intentName === 'CoffeeOrder') {
-    //     const { slots: { coffee, size } } = response
-    //     const finalMessage = `Congratulations! Your order of ${size} ${coffee} has been placed!`
-    //     this.setState({ finalMessage })
-    //   }
-    // }
   }
-  render() {
-    return (
-      <div className="App">
-        <header style={styles.header}>
-          <p style={styles.headerTitle}>Welcome to my coffee bot!</p>
-        </header>
-        <div style={styles.messagesContainer}>
-        <h2>{this.state.finalMessage}</h2>
-        <ChatFeed
-          messages={this.state.messages}
-          hasInputField={false}
-          bubbleStyles={styles.bubbleStyles}
-          isType={true}
-        />
 
-        <input
-          onKeyPress={this._handleKeyPress}
-          onChange={this.onChange.bind(this)}
-          style={styles.input}
-          value={this.state.input}
-        />
-        </div>
-      </div>
+  render() {
+    const background = (senderName) => {
+      return (senderName === 'robot') ? 'secondary' : 'success'
+    }
+
+    const textAlign=(senderName) => {
+      return (senderName === 'robot') ? 'p-2 float-left' : 'p-2 float-right'
+    }
+
+    const height = window.screen.height * 0.65
+
+    return (
+      <Container className='mt-5 clearfix text-center' style={{height: height, overflow:'scroll', width: '40rem'}}>
+          <h2 className='text-danger'>{this.state.finalMessage}</h2>
+          <div> 
+            {this.state.messages.map((msg, index) => (
+              <div key={index} className='clearfix'>
+              <Alert  variant={background(msg.senderName)} className={textAlign(msg.senderName)} style={{maxWidth: '80%'}}> 
+                {msg.message}
+              </Alert>
+              </div>
+            ))}
+          </div>
+          <input
+            onKeyPress={this._handleKeyPress}
+            onChange={this.onChange.bind(this)}
+            style={styles.input}
+            value={this.state.input}
+          />
+      </Container>
     );
   }
 }
 
 const styles = {
-  bubbleStyles: {
-    text: {
-      fontSize: 16,
-    },
-    chatbubble: {
-      borderRadius: 30,
-      padding: 10
-    }
-  },
-  headerTitle: {
-    color: 'white',
-    fontSize: 22
-  },
-  header: {
-    backgroundColor: 'rgb(0, 132, 255)',
-    padding: 20,
-    borderTop: '12px solid rgb(204, 204, 204)'
-  },
   messagesContainer: {
     display: 'flex',
     flexDirection: 'column',
-    padding: 10,
+    padding: 20,
     alignItems: 'center'
   },
   input: {
