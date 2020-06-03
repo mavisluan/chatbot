@@ -1,19 +1,16 @@
 import React, { useState, useRef, useEffect } from 'react';
 import {Alert, Container} from 'react-bootstrap'
 import { Interactions } from 'aws-amplify';
-import { Message } from 'react-chat-ui'
+import { v4 as uuidv4 } from 'uuid';
 
 const StyledOrderCoffee = () => {
   const [msg, setMsg] = useState('')
   const [chat, setChat] = useState({
     finalMessage: '',
-    messages: [
-      new Message({
-        id: 1,
-        message: "Hello, what kind of coffee would you like today?",
-        senderName:'robot'
-      })
-    ]
+    messages: [{id: uuidv4(),
+      message: "Hello, what kind of coffee would you like today?",
+      senderName:'robot'
+    }]
   })
   const { finalMessage, messages} = chat;
 
@@ -33,13 +30,12 @@ const StyledOrderCoffee = () => {
 
   const submitMessage = async () => {
     if (msg === '') return
-    const message = new Message({
-      id: 0,
+    const message = {
+      id: uuidv4(),
       message: msg,
       senderName: 'user'
-    })
+    }
 
-    console.log('user message');
     let messages = [...chat.messages, message]
     setMsg('')
     setChat({
@@ -48,13 +44,11 @@ const StyledOrderCoffee = () => {
     })
 
     const response = await Interactions.send("CoffeeBot_dev", msg);
-    const responseMessage = new Message({
-      id: 1,
+    const responseMessage = {
+      id: uuidv4(),
       message: response.message,
       senderName: 'robot'
-    })
-
-    console.log('robot message');
+    }
 
     setChat({
       ...chat,
@@ -82,8 +76,8 @@ const StyledOrderCoffee = () => {
       <Container className='mt-2' style={{height: height, width: width, overflow:'scroll'}}>
           <h2 className='text-danger'>{finalMessage}</h2>
           <div> 
-            {messages.map((msg, index) => (
-              <div key={index} className='clearfix'>
+            {messages.map(msg => (
+              <div key={msg.id} className='clearfix'>
               <Alert variant={background(msg.senderName)} className={textAlign(msg.senderName)} style={{maxWidth: '80%'}}> 
                 {msg.message}
               </Alert>
