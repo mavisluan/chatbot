@@ -10,7 +10,7 @@ class StyledOrderCoffee extends Component {
     messages: [
       new Message({
         id: 1,
-        message: "Hello, how can I help you today?",
+        message: "Hello, what kind of coffee would you like today?",
         senderName:'robot'
       })
     ]
@@ -52,6 +52,7 @@ class StyledOrderCoffee extends Component {
   }
 
   render() {
+    console.log('messages', this.state.messages)
     const background = (senderName) => {
       return (senderName === 'robot') ? 'secondary' : 'success'
     }
@@ -61,44 +62,29 @@ class StyledOrderCoffee extends Component {
     }
 
     const height = window.screen.height * 0.65
+    const width = window.screen.width * 0.5
 
     return (
-      <Container className='mt-5 clearfix text-center' style={{height: height, overflow:'scroll', width: '40rem'}}>
+      <Container className='mt-5' style={{height: height, width: width, overflow:'scroll'}}>
           <h2 className='text-danger'>{this.state.finalMessage}</h2>
           <div> 
             {this.state.messages.map((msg, index) => (
               <div key={index} className='clearfix'>
-              <Alert  variant={background(msg.senderName)} className={textAlign(msg.senderName)} style={{maxWidth: '80%'}}> 
+              <Alert variant={background(msg.senderName)} className={textAlign(msg.senderName)} style={{maxWidth: '80%'}}> 
                 {msg.message}
               </Alert>
               </div>
             ))}
           </div>
-          <input
+          <input 
+            className='form-control fixed-bottom mx-auto mb-3' 
             onKeyPress={this._handleKeyPress}
             onChange={this.onChange.bind(this)}
-            style={styles.input}
             value={this.state.input}
+            style={{width: width}}
           />
       </Container>
     );
-  }
-}
-
-const styles = {
-  messagesContainer: {
-    display: 'flex',
-    flexDirection: 'column',
-    padding: 20,
-    alignItems: 'center'
-  },
-  input: {
-    fontSize: 16,
-    padding: 10,
-    outline: 'none',
-    width: 350,
-    border: 'none',
-    borderBottom: '2px solid rgb(0, 132, 255)'
   }
 }
 
