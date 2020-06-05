@@ -8,7 +8,7 @@ const StyledOrderCoffee = () => {
   const [chat, setChat] = useState({
     finalMessage: '',
     messages: [{id: uuidv4(),
-      message: "Hello, what kind of coffee would you like today?",
+      message: "Hello, what kind of drinks would you like today, coffee or tea?",
       senderName:'robot'
     }]
   })
