@@ -10,6 +10,13 @@ const myTheme = {
   };
   
 const OrderCoffee = () => {
+    const customerVoiceConfig = {
+      silenceDetentionConfig: {
+        time: 2000,
+        amplitude: 0.2
+      }
+    }
+
     const handleComplete = (err, confirmation) => {
         if (err) {
           alert('Bot conversation failed')
@@ -23,11 +30,13 @@ const OrderCoffee = () => {
         <ChatBot
         title="My Bot"
         theme={myTheme}
-        botName="CoffeeBot_dev"
+        botName="ServiceBot_dev"
         welcomeMessage="Welcome, how can I help you today?"
         onComplete={handleComplete}
         clearOnComplete={true}
-        conversationModeOn={false}
+        conversationModeOn={true}
+        voiceEnabled={true}
+        voidCOnfig={customerVoiceConfig}
       />
     )
 }

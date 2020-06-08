@@ -43,7 +43,7 @@ const StyledOrderCoffee = () => {
       messages
     })
 
-    const response = await Interactions.send("CoffeeBot_dev", msg);
+    const response = await Interactions.send("ServiceBot_dev", msg);
     const responseMessage = {
       id: uuidv4(),
       message: response.message,

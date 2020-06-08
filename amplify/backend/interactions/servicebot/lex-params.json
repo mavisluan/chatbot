@@ -1,0 +1,34 @@
+{
+    "resourceName": "servicebot",
+    "botName": "ServiceBot",
+    "intents": [
+        {
+            "cancelMessage": "Okay. I will not place your order.",
+            "confirmationQuestion": "One {size} {coffee}?",
+            "slots": [
+                {
+                    "name": "coffee",
+                    "type": "CoffeeTypes",
+                    "prompt": "What type of coffee?",
+                    "required": true,
+                    "customType": true
+                },
+                {
+                    "name": "size",
+                    "type": "CoffeeSizes",
+                    "prompt": "What size?",
+                    "required": true,
+                    "customType": true
+                }
+            ],
+            "utterances": [
+                "I would like to order a coffee"
+            ],
+            "intentName": "CoffeeOrder",
+            "newSlotTypes": []
+        }
+    ],
+    "outputVoice": "Joanna",
+    "sessionTimeout": 5,
+    "coppa": false
+}

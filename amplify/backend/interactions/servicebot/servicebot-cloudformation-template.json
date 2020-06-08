@@ -105,12 +105,12 @@
 				"FunctionName": {
 					"Fn::If": [
 						"ShouldNotCreateEnvResources",
-						"chatbot_cfnlambda_1a6e50d7",
+						"chatbot_cfnlambda_1e3d39b6",
 						{
 							"Fn::Join": [
 								"",
 								[
-									"chatbot_cfnlambda_1a6e50d7",
+									"chatbot_cfnlambda_1e3d39b6",
 									"-",
 									{
 										"Ref": "env"
@@ -136,8 +136,8 @@
 				"Runtime": "nodejs10.x",
 				"Timeout": "300",
 				"Code": {
-					"S3Bucket": "amplify-chatbot-dev-153416-deployment",
-					"S3Key": "amplify-builds/coffeeOrder-463143765a3677644237-build.zip"
+					"S3Bucket": "amplify-chatbot-dev-125128-deployment",
+					"S3Key": "amplify-builds/servicebot-57495035754f6a424e58-build.zip"
 				}
 			}
 		},
@@ -147,12 +147,12 @@
 				"RoleName": {
 					"Fn::If": [
 						"ShouldNotCreateEnvResources",
-						"lexLambdaRole1a6e50d7",
+						"lexLambdaRole1e3d39b6",
 						{
 							"Fn::Join": [
 								"",
 								[
-									"lexLambdaRole1a6e50d7",
+									"lexLambdaRole1e3d39b6",
 									"-",
 									{
 										"Ref": "env"
@@ -180,7 +180,7 @@
 				},
 				"Policies": [
 					{
-						"PolicyName": "cloudWatchPolicy1a6e50d7",
+						"PolicyName": "cloudWatchPolicy1e3d39b6",
 						"PolicyDocument": {
 							"Version": "2012-10-17",
 							"Statement": [
@@ -197,7 +197,7 @@
 						}
 					},
 					{
-						"PolicyName": "lexPolicy1a6e50d7",
+						"PolicyName": "lexPolicy1e3d39b6",
 						"PolicyDocument": {
 							"Version": "2012-10-17",
 							"Statement": [
@@ -227,7 +227,7 @@
 						}
 					},
 					{
-						"PolicyName": "lambdaPolicy1a6e50d7",
+						"PolicyName": "lambdaPolicy1e3d39b6",
 						"PolicyDocument": {
 							"Version": "2012-10-17",
 							"Statement": [
@@ -244,7 +244,7 @@
 				]
 			}
 		},
-		"LambdaFunctionOutputs1a6e50d7": {
+		"LambdaFunctionOutputs1e3d39b6": {
 			"Type": "Custom::LambdaCallout",
 			"Properties": {
 				"ServiceToken": {
@@ -270,7 +270,7 @@
 		"CognitoUnauthPolicy": {
 			"Type": "AWS::IAM::Policy",
 			"Properties": {
-				"PolicyName": "lex_amplify_1a6e50d7",
+				"PolicyName": "lex_amplify_1e3d39b6",
 				"Roles": [
 					{
 						"Ref": "unauthRoleName"
@@ -312,12 +312,12 @@
 											{
 												"Fn::If": [
 													"ShouldNotCreateEnvResources",
-													"CoffeeBot",
+													"ServiceBot",
 													{
 														"Fn::Join": [
 															"",
 															[
-																"CoffeeBot",
+																"ServiceBot",
 																"_",
 																{
 																	"Ref": "env"
@@ -340,7 +340,7 @@
 		"CognitoAuthPolicy": {
 			"Type": "AWS::IAM::Policy",
 			"Properties": {
-				"PolicyName": "lex_amplify_1a6e50d7",
+				"PolicyName": "lex_amplify_1e3d39b6",
 				"Roles": [
 					{
 						"Ref": "authRoleName"
@@ -382,12 +382,12 @@
 											{
 												"Fn::If": [
 													"ShouldNotCreateEnvResources",
-													"CoffeeBot",
+													"ServiceBot",
 													{
 														"Fn::Join": [
 															"",
 															[
-																"CoffeeBot",
+																"ServiceBot",
 																"_",
 																{
 																	"Ref": "env"
@@ -424,12 +424,12 @@
 			"Value": {
 				"Fn::If": [
 					"ShouldNotCreateEnvResources",
-					"CoffeeBot",
+					"ServiceBot",
 					{
 						"Fn::Join": [
 							"",
 							[
-								"CoffeeBot",
+								"ServiceBot",
 								"_",
 								{
 									"Ref": "env"

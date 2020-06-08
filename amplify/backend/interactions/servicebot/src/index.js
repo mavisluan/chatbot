@@ -18,14 +18,29 @@ exports.handler = function(event, context) {
         {
             "name": "CoffeeOrder",
             
+            "confirmationPrompt": {
+                "maxAttempts": 2, 
+                "messages": [
+                    {
+                        "content": "One {size} {coffee}?", 
+                        "contentType": "PlainText"
+                    }
+                ]
+            }, 
             
+            
+            "rejectionStatement": {
+                "messages": [
+                    {
+                    "content": "Okay. I will not place your order.", 
+                    "contentType": "PlainText"
+                    }
+                ]
+            }, 
+        
             "sampleUtterances": [
             
                 "I would like to order a coffee",
-            
-                "I would like to have a drink",
-            
-                "I would like to order",
             
             ],
         
@@ -39,13 +54,30 @@ exports.handler = function(event, context) {
                     "name": "coffee",
                     "slotConstraint": "Required",
                     "priority": 0,
-                    "slotType": "AMAZON.Drink",
-                    
+                    "slotType": "CoffeeTypes",
+                    "slotTypeVersion": "$LATEST",
                     "valueElicitationPrompt": {
                         "maxAttempts": 3,
                         "messages": [
                             {
-                                "content": "What kind of coffee?",
+                                "content": "What type of coffee?",
+                                "contentType": "PlainText"
+                            }
+                        ]
+                    }
+                },
+                
+                {
+                    "name": "size",
+                    "slotConstraint": "Required",
+                    "priority": 1,
+                    "slotType": "CoffeeSizes",
+                    "slotTypeVersion": "$LATEST",
+                    "valueElicitationPrompt": {
+                        "maxAttempts": 3,
+                        "messages": [
+                            {
+                                "content": "What size?",
                                 "contentType": "PlainText"
                             }
                         ]
@@ -56,7 +88,7 @@ exports.handler = function(event, context) {
         },
         
     ];
-    let botName = "CoffeeBot";
+    let botName = "ServiceBot";
     if(process.env.ENV && process.env.ENV !== "NONE") {
       botName = botName + '_' + process.env.ENV;
     }
@@ -250,7 +282,7 @@ function ensureLambdaFunctionAccess(intent){
 
         const params = {
             FunctionName: lambdaName,
-            StatementId: `Lex-${intent.name}`+ "1a6e50d7",
+            StatementId: `Lex-${intent.name}`+ "1e3d39b6",
             Action: 'lambda:InvokeFunction',
             Principal: 'lex.amazonaws.com',
             SourceArn: `arn:aws:lex:${region}:${accountId}:intent:${intent.name}:*`,

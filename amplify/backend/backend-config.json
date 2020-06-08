@@ -1,17 +1,12 @@
 {
 	"auth": {
-		"cognitobf232e08": {
+		"cognitoc130a32a": {
 			"service": "Cognito",
 			"providerPlugin": "awscloudformation"
 		}
 	},
 	"interactions": {
-		"orderFlowers": {
-			"service": "Lex",
-			"providerPlugin": "awscloudformation",
-			"build": true
-		},
-		"coffeeOrder": {
+		"servicebot": {
 			"service": "Lex",
 			"providerPlugin": "awscloudformation",
 			"build": true
