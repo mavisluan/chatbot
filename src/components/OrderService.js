@@ -3,12 +3,12 @@ import {Alert, Container} from 'react-bootstrap'
 import { Interactions } from 'aws-amplify';
 import { v4 as uuidv4 } from 'uuid';
 
-const StyledOrderCoffee = () => {
+const OrderService = () => {
   const [msg, setMsg] = useState('')
   const [chat, setChat] = useState({
     finalMessage: '',
     messages: [{id: uuidv4(),
-      message: "Hello, what kind of drinks would you like today, coffee or tea?",
+      message: "Hello, I am Sally. Would you like to order a coffee, tea or pizza?",
       senderName:'robot'
     }]
   })
@@ -96,4 +96,4 @@ const StyledOrderCoffee = () => {
     );
 }
 
-export default StyledOrderCoffee
+export default OrderService
