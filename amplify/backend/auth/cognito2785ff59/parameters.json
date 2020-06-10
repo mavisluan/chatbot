@@ -1,8 +1,8 @@
 {
-    "identityPoolName": "chatbot_identitypool_82e8d9ee",
+    "identityPoolName": "chatbot_identitypool_4f50cd5f",
     "allowUnauthenticatedIdentities": true,
     "authSelections": "identityPoolOnly",
-    "resourceName": "cognitoc130a32a",
+    "resourceName": "cognito2785ff59",
     "authRoleArn": {
         "Fn::GetAtt": [
             "AuthRole",

@@ -18,26 +18,7 @@ exports.handler = function(event, context) {
         {
             "name": "CoffeeOrder",
             
-            "confirmationPrompt": {
-                "maxAttempts": 2, 
-                "messages": [
-                    {
-                        "content": "One {size} {coffee}?", 
-                        "contentType": "PlainText"
-                    }
-                ]
-            }, 
             
-            
-            "rejectionStatement": {
-                "messages": [
-                    {
-                    "content": "Okay. I will not place your order.", 
-                    "contentType": "PlainText"
-                    }
-                ]
-            }, 
-        
             "sampleUtterances": [
             
                 "I would like to order a coffee",
@@ -60,24 +41,7 @@ exports.handler = function(event, context) {
                         "maxAttempts": 3,
                         "messages": [
                             {
-                                "content": "What type of coffee?",
-                                "contentType": "PlainText"
-                            }
-                        ]
-                    }
-                },
-                
-                {
-                    "name": "size",
-                    "slotConstraint": "Required",
-                    "priority": 1,
-                    "slotType": "CoffeeSizes",
-                    "slotTypeVersion": "$LATEST",
-                    "valueElicitationPrompt": {
-                        "maxAttempts": 3,
-                        "messages": [
-                            {
-                                "content": "What size?",
+                                "content": "What kind if coffee?",
                                 "contentType": "PlainText"
                             }
                         ]
@@ -282,7 +246,7 @@ function ensureLambdaFunctionAccess(intent){
 
         const params = {
             FunctionName: lambdaName,
-            StatementId: `Lex-${intent.name}`+ "1e3d39b6",
+            StatementId: `Lex-${intent.name}`+ "23536c4e",
             Action: 'lambda:InvokeFunction',
             Principal: 'lex.amazonaws.com',
             SourceArn: `arn:aws:lex:${region}:${accountId}:intent:${intent.name}:*`,

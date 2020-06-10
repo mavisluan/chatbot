@@ -3,20 +3,11 @@
     "botName": "ServiceBot",
     "intents": [
         {
-            "cancelMessage": "Okay. I will not place your order.",
-            "confirmationQuestion": "One {size} {coffee}?",
             "slots": [
                 {
                     "name": "coffee",
                     "type": "CoffeeTypes",
-                    "prompt": "What type of coffee?",
-                    "required": true,
-                    "customType": true
-                },
-                {
-                    "name": "size",
-                    "type": "CoffeeSizes",
-                    "prompt": "What size?",
+                    "prompt": "What kind if coffee?",
                     "required": true,
                     "customType": true
                 }
